@@ -151,10 +151,13 @@ public class BookPackage extends JFrame implements ActionListener {
                 cost += 32000;
             }
 
-            /* There is bug here that is you can select negative number in person column*/
             int person = Integer.parseInt(tfpersons.getText());
-            cost *= person;
-            labeltotalprice.setText("Rs " + cost + "/-");
+            if (person >= 1) {
+                cost *= person;
+                labeltotalprice.setText("Rs " + cost + "/-");
+            }else {
+                JOptionPane.showMessageDialog(null, "Enter the valid number in Total Person!");
+            }
 
         } else if (e.getSource() == bookPackage) {
             try {
